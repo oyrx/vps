@@ -13,7 +13,7 @@
     </head>
 </head>
 
-<body style="width: 100%; font-size: 1.5em;">
+<body style="width: 100%; font-size: 1.8em;">
     <div style="margin-top: 4em;">
         <center>Choose your plan!<br/><span style="font-size: 0.5em; color: #666; line-height: 1em;">Just find the best VPS.</span></center>
     </div>
@@ -44,54 +44,35 @@
             </button>
             <br/><br/>
             <br/><br/>
-            <br/><br/>
-            <soan style="font-size: 0.5em; color: #999;" >Code <a href="https://github.com/oyrx/vps" style="color: #666; text-decoration: none;">@oyrx</a> | 2017.2.18</soan>
+            <soan style="font-size: 0.5em; color: #999;">Code <a href="https://github.com/oyrx/vps" style="color: #666; text-decoration: none;">@oyrx</a> | 2019.4.12</soan>
         </center>
     </div>
-    <script src="https://cdn.bootcss.com/jquery/1.8.3/jquery.min.js"></script>
-    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <script type="text/javascript">
-    //$('input[type="checkbox"]').click(function() {
-var main = function(){
-    $('.mdl-switch__input:eq(0)').click(function() {
-        if ($('input[type="checkbox"]:checked').length > 2) {
-            var i = Math.floor(Math.random()*2);
-            if (i == 1 ) {
+        num = 0
+        stop = false
 
-            $('.mdl-switch__input:eq(1)').click();
-            } else {
+        function button(number) {
+            // return $('.mdl-switch__input:eq(' + number + ')')
+            return document.getElementsByClassName("mdl-switch__input")[number];
+        };
 
-            $('.mdl-switch__input:eq(2)').click();
+        function random(btn_num) {
+            btn_list = [0, 1, 2]
+            btn_list.splice(btn_num, 1)
+            if (document.querySelectorAll('input[type="checkbox"]:checked').length > 2) {
+                button(btn_list[Math.floor(Math.random() * btn_list.length)]).click();
             }
         }
-    });
-    $('.mdl-switch__input:eq(1)').click(function() {
-        if ($('input[type="checkbox"]:checked').length > 2) {
-            var i = Math.floor(Math.random()*2);
-            if (i == 1 ) {
-
-            $('.mdl-switch__input:eq(2)').click();
-            } else {
-
-            $('.mdl-switch__input:eq(0)').click();
-            }
-        }
-    });
-    $('.mdl-switch__input:eq(2)').click(function() {
-        if ($('input[type="checkbox"]:checked').length > 2) {
-            var i = Math.floor(Math.random()*2);
-            if (i == 1 ) {
-
-            $('.mdl-switch__input:eq(0)').click();
-            } else {
-
-            $('.mdl-switch__input:eq(1)').click();
-            }
-        }
-    });
-}
-$(document).ready(main);
-    //})
+        button(0).onclick = function() {
+            random(0);
+        };
+        button(1).onclick = function() {
+            random(1);
+        };
+        button(2).onclick = function() {
+            random(2);
+        };
     </script>
 </body>
 
